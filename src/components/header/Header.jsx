@@ -1,11 +1,12 @@
 import React from "react";
 import Form from "./Form";
-import { HeaderDiv } from "./style";
+import { HeaderDiv, Title } from "./style";
 
-const Header = () => {
+const Header = ({ setLoading, setRecipes }) => {
     return (
         <HeaderDiv>
-            <Form />
+            <Title>Food App</Title>
+            <Form setRecipes={setRecipes} setLoading={setLoading} />
         </HeaderDiv>
     );
 };
