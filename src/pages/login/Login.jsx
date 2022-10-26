@@ -20,7 +20,7 @@ const Login = ({ setLogin }) => {
         <LoginPage>
             <LoginContainer>
                 <Header>
-                    <img src={meal2} width="100px" alt="login-form-image" />
+                    <img src={meal2} width="100px" alt="login-form-icon" />
                     <Title>RECIPE</Title>
                 </Header>
                 <Form onSubmit={handleSubmit}>

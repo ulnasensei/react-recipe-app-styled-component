@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
-import Navbar from "../components/navbar/Navbar";
 import About from "../pages/about/About";
 import Details from "../pages/details/Details";
+import Login from "../pages/login/Login";
+import PrivateRouter from "./PrivateRouter";
 const AppRouter = () => {
+    const [login, setLogin] = useState(false);
     return (
         <>
-            <Navbar />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/details" element={<Details />} />
+                <Route path="/login" element={<Login setLogin={setLogin} />} />
+                <Route path="/" element={<PrivateRouter login={login} component={<Home />} />} />
+                <Route
+                    path="/details"
+                    element={<PrivateRouter login={login} component={<Details />} />}
+                />
+                <Route
+                    path="/about"
+                    element={<PrivateRouter login={login} component={<About />} />}
+                />
             </Routes>
         </>
     );
