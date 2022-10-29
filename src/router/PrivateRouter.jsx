@@ -1,8 +1,9 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 
 const PrivateRouter = ({ login, component }) => {
     console.log(login);
+    const location = useLocation();
     return (
         <>
             {login ? (
@@ -10,7 +11,7 @@ const PrivateRouter = ({ login, component }) => {
                     <Navbar /> {component}
                 </>
             ) : (
-                <Navigate to="/login" />
+                <Navigate to={`/login?redirectTo=${location.pathname}`} />
             )}
         </>
     );

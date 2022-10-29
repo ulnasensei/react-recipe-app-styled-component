@@ -1,11 +1,14 @@
 import React from "react";
 import { RecipeDiv, RecipeCard } from "./style";
 import { Button } from "../../components/header/style";
+import { useNavigate } from "react-router-dom";
 
 const RecipeCards = ({ recipes }) => {
+    const navigate = useNavigate();
     const handleClick = (e) => {
         e.preventDefault();
         console.log(e.target.id);
+        navigate(`/details/${e.target.id}`);
     };
     return (
         <RecipeDiv>
